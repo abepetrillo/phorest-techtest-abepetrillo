@@ -24,9 +24,6 @@
         <input name="email" placeholder="email.." value="<%= @search&.email %>"/>
         <input type="submit" value="Search" />
       </form>
-      <form action="/clients/refresh" method="put">
-        <input type="button" value="Refresh Client List"/>
-      </form>
     </header>
     <main>
       <%= yield %>

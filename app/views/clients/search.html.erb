@@ -1,12 +1,34 @@
 <% if @clients.count > 0 %>
   <table>
-  <% @clients.each do |c| %>
-    <tr>
-      <td><%= c[:firstName] %></td>
-      <td><%= c[:lastName] %></td>
-      <td><%= c[:email] %></td>
-    </tr>
-  <% end %>
+    <thead>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+    </thead>
+    <tbody>
+    <% @clients.each do |c| %>
+      <tr>
+        <td><%= c[:firstName] %></td>
+        <td><%= c[:lastName] %></td>
+        <td><%= c[:email] %></td>
+      </tr>
+    <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>
+          <% if @current_page_number > 1 %>
+            <%= link_to 'Prev', search_clients_path(search_params.merge(page: @page[:number] - 1)) %>
+          <% end %>
+        </td>
+        <td>Current Page: <%= @current_page_number %> </td>
+        <td>
+          <% if @current_page_number < @page[:totalPages] %>
+            <%= link_to 'Next', search_clients_path(search_params.merge(page: @page[:number] + 1)) %>
+          <% end %>
+        </td>
+      </tr>
+    </tfoot>
   </table>
 <% else %>
   <% if @empty_search %>
@@ -15,16 +37,3 @@
     <p> No results found </p>
   <% end %>
 <% end %>
-<footer>
-  <div>
-    <% if (@page[:number] + 1) > 0 %>
-      <%= link_to 'Prev', search_clients_path(search_params.merge(page: @page[:number] - 1)) %>
-    <% end %>
-  </div>
-  <div>Current Page: <%= @page[:number] + 1 %> </div>
-  <div>
-    <% if @page[:number] + 1 < @page[:totalPages] %>
-      <%= link_to 'Next', search_clients_path(search_params.merge(page: @page[:number] + 1)) %>
-    <% end %>
-  </div>
-</footer>

@@ -10,6 +10,7 @@ class ClientsController < ApplicationController
       @result = PhorestGatewayService.new.clients(search_params.to_h)
       @clients = @result[:clients]
       @page = @result[:page]
+      @current_page_number = (@page[:number] || 0) + 1
     end
     render :search, locals: {search_params: search_params}
   end
