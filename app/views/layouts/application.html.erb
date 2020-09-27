@@ -10,6 +10,19 @@
   </head>
 
   <body>
+    <header>
+      <a class="logo" href="/">
+        <img src="<%= asset_path 'phorest-acorn-logo.svg' %>" />
+      </a>
+      <nav>
+        <a href="/clients">Clients</a>
+        <a href="/vouchers">Vouchers</a>
+      </nav>
+      <form action="clients/search" method="get">
+        <input name="query" />
+        <input type="submit" value="Search" />
+      </form>
+    </header>
     <%= yield %>
   </body>
 </html>
