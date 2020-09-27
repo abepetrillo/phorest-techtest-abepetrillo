@@ -4,9 +4,18 @@ class PhorestGatewayService
   basic_auth ENV.fetch('PHOREST_USERNAME'), ENV.fetch('PHOREST_PASSWORD')
 
 
-  def clients
-    response = self.class.get('/client', {query: {firstName: '~pro%', email: '~de%'}})
-    JSON.parse(response.body, symbolize_names: true).first[1][:clients]
+  # Supports searching for clients, and cleans params where necessary.
+  # For example the API treats empty strings as a valid search argument, so we filter those to be null
+  def clients(params = {})
+    params.reject! {|key, value| value.empty? }
+    params.map {|key, value| params[key] = "~#{value}%"  }
+    response = self.class.get('/client', {query: params})
+    response = JSON.parse(response.body, symbolize_names: true)
+    if response[:page][:totalElements] < 1
+      []
+    else
+      response[:_embedded][:clients]
+    end
   end
 
 end

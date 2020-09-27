@@ -19,10 +19,17 @@
         <a href="/vouchers">Vouchers</a>
       </nav>
       <form action="/clients/search" method="get">
-        <input name="query" />
+        <input name="firstName" placeholder="first name..." value="<%= @search&.firstName %>"/>
+        <input name="lastName" placeholder="last name..." value="<%= @search&.lastName %>"/>
+        <input name="email" placeholder="email.." value="<%= @search&.email %>"/>
         <input type="submit" value="Search" />
       </form>
+      <form action="/clients/refresh" method="put">
+        <input type="button" value="Refresh Client List"/>
+      </form>
     </header>
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

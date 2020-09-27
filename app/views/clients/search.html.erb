@@ -1,9 +1,17 @@
-<table>
-<% @clients.each do |c| %>
-  <tr>
-    <td><%= c[:firstName] %></td>
-    <td><%= c[:lastName] %></td>
-    <td><%= c[:email] %></td>
-  </tr>
+<% if @clients.count > 0 %>
+  <table>
+  <% @clients.each do |c| %>
+    <tr>
+      <td><%= c[:firstName] %></td>
+      <td><%= c[:lastName] %></td>
+      <td><%= c[:email] %></td>
+    </tr>
+  <% end %>
+  </table>
+<% else %>
+  <% if @empty_search %>
+    <p> Please enter either first name, last name or email at the top of the screen </p>
+  <% else %>
+    <p> No results found </p>
+  <% end %>
 <% end %>
-</table>

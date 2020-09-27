@@ -21,4 +21,5 @@ Looks like the documentation is written using swagger. Based on that I found a g
 TODO
 
 ## What I would change
-TODO
+
+I decided not to download the client list locally. Given the way the API works, and my own time constraints, managing the synced data would be too time consuming. My plan was to have a single field to search all three attributes, firstName, lastName and email. After reviewing the test criteria, it does say "A ruby on rails application backed by our API which allows you to search for a client". I'm going to assume here that "backed by the API" suggest no local data storage.
