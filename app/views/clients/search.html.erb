@@ -15,3 +15,16 @@
     <p> No results found </p>
   <% end %>
 <% end %>
+<footer>
+  <div>
+    <% if (@page[:number] + 1) > 0 %>
+      <%= link_to 'Prev', search_clients_path(search_params.merge(page: @page[:number] - 1)) %>
+    <% end %>
+  </div>
+  <div>Current Page: <%= @page[:number] + 1 %> </div>
+  <div>
+    <% if @page[:number] + 1 < @page[:totalPages] %>
+      <%= link_to 'Next', search_clients_path(search_params.merge(page: @page[:number] + 1)) %>
+    <% end %>
+  </div>
+</footer>

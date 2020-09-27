@@ -8,13 +8,17 @@ class PhorestGatewayService
   # For example the API treats empty strings as a valid search argument, so we filter those to be null
   def clients(params = {})
     params.reject! {|key, value| value.empty? }
-    params.map {|key, value| params[key] = "~#{value}%"  }
+    [
+      :firstName, :lastName, :email
+    ].map do |key|
+      params[key] = "~#{params[key]}%"
+    end
     response = self.class.get('/client', {query: params})
     response = JSON.parse(response.body, symbolize_names: true)
     if response[:page][:totalElements] < 1
-      []
+      {clients: [], page: response[:page]}
     else
-      response[:_embedded][:clients]
+      {clients: response[:_embedded][:clients], page: response[:page]}
     end
   end
 

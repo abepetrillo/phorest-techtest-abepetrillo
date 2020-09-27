@@ -7,12 +7,16 @@ class ClientsController < ApplicationController
     else
       @empty_search = false
       @search = OpenStruct.new(params)
-      @clients = PhorestGatewayService.new.clients(search_params.to_h)
+      @result = PhorestGatewayService.new.clients(search_params.to_h)
+      @clients = @result[:clients]
+      @page = @result[:page]
     end
-
+    render :search, locals: {search_params: search_params}
   end
 
+  private
+
   def search_params
-    params.permit(:firstName, :lastName, :email)
+    params.permit(:firstName, :lastName, :email, :page)
   end
 end
