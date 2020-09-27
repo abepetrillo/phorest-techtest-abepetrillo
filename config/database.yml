@@ -23,6 +23,12 @@ default: &default
 
 development:
   <<: *default
+  <% if ENV['RUNNING_DOCKER'] == 'true' %>
+  host:     db
+  username: postgres
+  <% else %>
+  host:     localhost
+  <% end %>
   database: phorest_techtest_abepetrillo_development
 
   # The specified database role being used to connect to postgres.

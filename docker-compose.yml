@@ -1,0 +1,30 @@
+version: '2.2'
+services:
+  db:
+    image: postgres:10.3
+    ports:
+      - "5432:5432"
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+  web:
+    build: .
+    tty: true
+    stdin_open: true
+    env_file: .env
+    command: bundle exec puma -C config/puma.rb
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redis
+      - db
+    volumes:
+      - .:/myapp:rw
+    volumes_from:
+      - phorest-bundler-cache
+
+  phorest-bundler-cache:
+    image: busybox
+    volumes:
+      - ./tmp/phorest_bundler_cache:/cache
