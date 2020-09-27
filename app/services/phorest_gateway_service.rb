@@ -22,4 +22,9 @@ class PhorestGatewayService
     end
   end
 
+  def client(id)
+    response = self.class.get("/client/#{id}")
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
 end

@@ -1,0 +1,11 @@
+<section class="client-profile">
+  <div class="personal-details">
+    <span>Name: <%= @client[:firstName] %> <%= @client[:lastName] %></span>
+    <span>Gender: <%= @client[:firstName] %> <%= @client[:lastName] %></span>
+  </div>
+  <div class="salon-details">
+    TODO: List vouchers
+    <%= link_to 'Create Voucher', new_voucher_path(client_id: @client[:clientId])%>
+  </div>
+</section>
+<%= @client.inspect %>

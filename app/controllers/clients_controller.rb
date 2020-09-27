@@ -10,9 +10,14 @@ class ClientsController < ApplicationController
       @result = PhorestGatewayService.new.clients(search_params.to_h)
       @clients = @result[:clients]
       @page = @result[:page]
+      # Page index starts at zero, but we want to show the first page as 1
       @current_page_number = (@page[:number] || 0) + 1
     end
     render :search, locals: {search_params: search_params}
+  end
+
+  def show
+    @client = PhorestGatewayService.new.client(params[:id])
   end
 
   private
