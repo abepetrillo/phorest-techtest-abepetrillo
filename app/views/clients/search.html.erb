@@ -1,1 +1,9 @@
-Search
+<table>
+<% @clients.each do |c| %>
+  <tr>
+    <td><%= c[:firstName] %></td>
+    <td><%= c[:lastName] %></td>
+    <td><%= c[:email] %></td>
+  </tr>
+<% end %>
+</table>
