@@ -42,7 +42,7 @@ When picturing this application working in a salon, there are a few things that 
 - The App doesn't necessarily have to be a web app
 -  (Nice to Have) The staff may prefer to access the app from multiple devices
 - (Nice to Have) Search can get detailed and complex very quickly. Ideally I would have used elasticsearch as I've had good experience with that, but given the time constraints I will limit this to a basic query.
-- (Nice to Have) Maybe be nice to identify which staff number creates the voucher using some sort of logging in mechanism. This wasn't in the requirements so going to leave it out, but maybe a personal pin would be the fastest way for a staff member to get into the system, or using their own device.
+- (Nice to Have) Maybe be nice to identify which staff member creates the voucher using some sort of logging in mechanism. This wasn't in the requirements so going to leave it out, but maybe a personal pin would be the fastest way for a staff member to get into the system, or using their own device.
 - Need a focus on speed here. Given the application is in the salon, the staff would like to focus on the client as much as possible as opposed to a screen. So reducing the amount of input required, and optimizing the search is an important aspect of the user experience. One test I would be interested in doing, is adding pictures to the client record, as maybe identifying a client by their appearance is quicker than by their name.
 
 ## The initial tech plan?
