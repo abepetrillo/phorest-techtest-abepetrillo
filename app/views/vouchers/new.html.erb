@@ -1,1 +1,22 @@
-New voucher
+<% if @voucher.errors.count > 0 %>
+  <div class="feedback error">
+    <%= @voucher.errors.full_messages %>
+  </div>
+<% end %>
+
+<%= form_for @voucher do |f| %>
+  <%= f.hidden_field :client_id %>
+  <div class="form-group">
+    <label>Expiry Date</label>
+    <%= f.date_field :expiry_date %>
+  </div>
+  <div class="form-group">
+    <label>Issue Date</label>
+    <%= f.date_field :issue_date %>
+  </div>
+  <div class="form-group">
+    <label>Original Balance (Euros)</label>
+    <%= f.text_field :original_balance_in_euros %>
+  </div>
+  <%= f.submit %>
+<% end %>

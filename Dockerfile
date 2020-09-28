@@ -1,4 +1,5 @@
 FROM circleci/ruby:2.6.6-stretch-node
+#TODO: Need a better way of handling read/write permissions on folders
 USER root
 ENV APP_HOME /myapp
 ENV BUNDLE_PATH /cache

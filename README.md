@@ -18,7 +18,12 @@ This will mostly be driven by what I'm familiar with technology wise, and what w
 Looks like the documentation is written using swagger. Based on that I found a gem that lets me write tests and generate the documentation at the same time so I'm going to try that out.
 
 ## Code Explanation
-TODO
+### Patterns used
+ - Avoid the use of activerecord callbacks (SyncVoucher)
+ - Always use strong params
+ - Try to handle a service being down as much as possible (Vouchers)
+ - Always store amounts of money in cents (or the lowest unit)
+ - Avoid using the client to pass around data (automated_params)
 
 ## What I would change
 

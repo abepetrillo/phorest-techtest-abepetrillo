@@ -1,0 +1,14 @@
+<table>
+  <thead>
+    <th>Serial Number</th>
+    <th>Client Id</th>
+    <th>Original Amount</th>
+  </thead>
+  <tbody>
+    <% @vouchers.each do |v| %>
+      <td><%= v.serial_number %><td>
+      <td><%= v.client_id %><td>
+      <td><%= v.original_balance_in_euros %><td>
+    <% end %>
+  </tbody>
+</table>
