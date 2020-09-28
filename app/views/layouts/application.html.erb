@@ -14,10 +14,6 @@
       <a class="logo" href="/">
         <img src="<%= asset_path 'phorest-acorn-logo.svg' %>" />
       </a>
-      <nav>
-        <a href="/clients">Clients</a>
-        <a href="/vouchers">Vouchers</a>
-      </nav>
       <form action="/clients/search" method="get">
         <input name="firstName" placeholder="first name..." value="<%= @search&.firstName %>"/>
         <input name="lastName" placeholder="last name..." value="<%= @search&.lastName %>"/>
