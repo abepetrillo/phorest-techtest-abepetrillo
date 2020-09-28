@@ -67,3 +67,4 @@ Looks like the documentation is written using swagger. Based on that I found a g
 - I'd remove the creating_branch_id from the Voucher model. Seen as this will always be the same on the machine, we can just keep that context in the `PhorestGatewayService`
 - UI needs a lot of love.
 - Didn't get time to mess around with adding swagger, but the rails app doesn't have an SPA, and isn't really an API in the strict sense so the documentation would have been purely for demonstrative purposes. May add it to my own projects though.
+- Use one field to search all three attributes on the client (firstName, lastName and email)
