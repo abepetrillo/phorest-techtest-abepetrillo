@@ -6,6 +6,7 @@ class ClientsController < ApplicationController
       @clients = []
     else
       @empty_search = false
+      # used to populate the search form
       @search = OpenStruct.new(params)
       @result = PhorestGatewayService.new.clients(search_params.to_h)
       @clients = @result[:clients]
