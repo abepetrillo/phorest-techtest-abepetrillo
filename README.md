@@ -19,12 +19,16 @@ Looks like the documentation is written using swagger. Based on that I found a g
 
 ## Code Explanation
 ### Patterns used
+ - Provide a service to talk to the phorest API providing a suitable abstraction
  - Avoid the use of activerecord callbacks (SyncVoucher)
  - Always use strong params
  - Try to handle a service being down as much as possible (Vouchers)
  - Always store amounts of money in cents (or the lowest unit)
  - Avoid using the client to pass around data (automated_params)
+ - Use ENV.fetch to raise an explicit exception so the developer realizes it's missing
 
 ## What I would change
 
-I decided not to download the client list locally. Given the way the API works, and my own time constraints, managing the synced data would be too time consuming. My plan was to have a single field to search all three attributes, firstName, lastName and email. After reviewing the test criteria, it does say "A ruby on rails application backed by our API which allows you to search for a client". I'm going to assume here that "backed by the API" suggest no local data storage.
+- I decided not to download the client list locally. Given the way the API works, and my own time constraints, managing the synced data would be too time consuming. My plan was to have a single field to search all three attributes, firstName, lastName and email. After reviewing the test criteria, it does say "A ruby on rails application backed by our API which allows you to search for a client". I'm going to assume here that "backed by the API" suggest no local data storage.
+- I'd remove the creating_branch_id from the Voucher model. Seen as this will always be the same on the machine, we can just keep that context in the `PhorestGatewayService`
+- UI needs a lot of love.
