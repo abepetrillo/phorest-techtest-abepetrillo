@@ -47,7 +47,7 @@ When picturing this application working in a salon, there are a few things that 
 
 ## The initial tech plan?
 
-This will mostly be driven by what I'm familiar with technology wise, and what would be the most product in a few hours. I'll be using sidekiq for async communication with the service, with recommendations for sidekiq-pro later for things like scheduled tasks and batch operations. Rails for the back end of course, and I'm going to avoid a css framework for now in the interest of speed, but if this was a real application I'd go with either bootstrap/materialize-sass, or single page application with a framework like vuetify. I'm also going to store as much of the data as I need locally, while allowing the user to add more information about the customer.
+This will mostly be driven by what I'm familiar with technology wise, and what would be the most productive in a few hours. I'll be using sidekiq for async communication with the service, with recommendations for sidekiq-pro later for things like scheduled tasks and batch operations. Rails for the back end of course, and I'm going to avoid a css framework for now in the interest of speed, but if this was a real application I'd go with either bootstrap/materialize-sass, or single page application with a framework like vuetify. I'm also going to store as much of the data as I need locally, while allowing the user to add more information about the customer.
 
 Looks like the documentation is written using swagger. Based on that I found a gem that lets me write tests and generate the documentation at the same time so I'm going to try that out.
 
