@@ -2,9 +2,6 @@ require 'rails_helper'
 
 describe SyncVoucher do
   describe '#perform' do
-    context 'given a voucher that doesnt exist' do
-
-    end
 
     context 'given a voucher' do
       context 'that does not exist' do
